@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -e js,twig --watch src index.js"
+    "dev": "cd reactapp && npm run start) & nodemon -e js,twig --watch src index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
     "querystring": "^0.2.1",
+    "react-router-dom": "^6.4.1",
     "request": "^2.88.2",
     "sequelize": "^6.21.6",
     "twig": "^1.15.4"
