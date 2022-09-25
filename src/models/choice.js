@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     a: DataTypes.STRING,
     b: DataTypes.STRING,
     c: DataTypes.STRING,
-    d: DataTypes.STRING
+    d: DataTypes.STRING,
+    questionId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Choice',

@@ -1,18 +1,20 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState} from 'react';
 import {
     BrowserRouter as Router,
     Route,
     Routes
 } from 'react-router-dom';
-import Navigation from './component/Navigation'
 import Home from './pages/Home'
-import Login from './pages/Login'
 import Quiz from './pages/Quiz'
+import Header from './component/Header';
+import Login from './pages/Login'
 import queryString from 'querystring';
+import axios from 'axios'
+import Logout from './pages/Logout';
 
-//fetch token for login
+
+
 const App = () => {
   const [token, setToken] = useState('')
   useEffect(() => {
@@ -30,20 +32,41 @@ const App = () => {
   }, []);
 
   if (!token) {
-    return <Login />;
+    return (
+      <div> 
+        <div style={styles.headerStyle}>
+					<h1 style={styles.h1}>Quizzes on Demand</h1>
+        </div>
+        <Login />
+      </div> 
+    )
   }
 
   return (
     <Router>
       <div className="App">
-        <Navigation isLoggedIn={token ? true : false} />
-        <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/quizzes/:id' element={<Quiz />} />
-        </Routes>
+        <Header token/>
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/quizzes/:id' element={<Quiz />} />
+            <Route exact path='/logout' element={<Logout />} />
+          </Routes>
       </div>
     </Router>
   );
 }
 
 export default App;
+
+const styles = {
+  headerStyle: {
+      backgroundColor: '#0B2027',
+      marginBottom: '20px'
+  },
+  h1: {
+      padding: '1rem 0',
+      textAlign: 'center',
+  fontSize: '6rem',
+      color: '#DFF0F6'
+}
+}

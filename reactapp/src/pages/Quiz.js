@@ -13,27 +13,38 @@ const Quiz = () => {
 				}
 			})
 	  		setQuiz(q.data)
-			console.log(q)
 		}
 		fetchQuiz()
 	}, []);
 	return (
 		<form id="quiz">
-			<h1>{quiz.name} Quiz</h1>
+			<h2>{quiz.name} Quiz</h2>
 			<ul>
 				{quiz.Questions.map(q => (
 					<li>
 						<h3>{q.question}</h3>
-						<ul>
-							<li>
 								{q.Choices.map(c => (
 									<div>
-										<input type="radio" name={'question_' + q.id} required />
-										<label>{c.label}</label>
+										<ul>
+										<li>
+											<input type="radio" name={'question_' + q.id} required />
+											<label>{c.a}</label>
+										</li>
+										<li>
+											<input type="radio" name={'question_' + q.id} required />
+											<label>{c.b}</label>
+										</li>
+										<li>
+											<input type="radio" name={'question_' + q.id} required />
+											<label>{c.c}</label>
+										</li>
+										<li>
+											<input type="radio" name={'question_' + q.id} required />
+											<label>{c.d}</label>
+										</li>
+										</ul>
 									</div>
 								))}
-							</li>
-						</ul>
 					</li>
 				))}
 			</ul>

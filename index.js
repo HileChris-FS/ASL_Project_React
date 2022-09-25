@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express();
 const bodyParser = require('body-parser')
-const homeCtrl = require('./src/controllers/home')
-const quizzesCtrl = require('./src/controllers/quizzes');
-const choicesCtrl = require('./src/controllers/choices');
-const questionsCtrl = require('./src/controllers/questions');
+
+const quizzesCtrl = require('./src/controllers/quiz');
+const choicesCtrl = require('./src/controllers/choice');
+const questionsCtrl = require('./src/controllers/question');
 const authCtrl = require('./src/controllers/auth')
 const cors = require('cors');
 const session = require('express-session');
@@ -33,10 +33,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 
-app.use('/quizzes', quizzesCtrl);
-app.use('/choices',  choicesCtrl);
-app.use('/questions',  questionsCtrl)
+app.use('/quizzes',  quizzesCtrl);
+app.use('/choices', choicesCtrl);
+app.use('/questions', questionsCtrl)
 app.use('/auth', authCtrl)
-app.use('/', homeCtrl)
+
 
 app.listen(3000);

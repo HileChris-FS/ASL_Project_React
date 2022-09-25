@@ -5,10 +5,13 @@
 {% endif %}
 
     <div>
+        <label for="quizId">Quiz ID</label>
+        <input id="quizId type="text" name="quizID</>
         <label for="name">Question: </label>
         {%  if question %}
             <input id="name" type="text" name="name" value="{{question.name}}"/>
         {% else %}
+            <input id="quizId type="text" name="quizID</>
             <input id="name" type="text" name="name" />
             
         {% endif %}

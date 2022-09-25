@@ -15,8 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       models.Question.hasMany(models.Choice)
     }
   }
-  Question.giinit({
-    question: DataTypes.STRING
+  Question.init({
+    question: DataTypes.STRING,
+    quizId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Question',
